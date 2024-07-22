@@ -1,0 +1,667 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fond noir */
+    color: #ffffff; /* Texte blanc */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: #000000;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
+}
+
+header:hover {
+    background-color: #222;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+header h1 {
+    display: inline;
+    font-size: 2em;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+/* Profiles Section */
+.profiles {
+    padding: 20px;
+}
+
+.profiles h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    animation: fadeIn 1s ease;
+}
+
+/* Profile List */
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Profile Card */
+.profile-card {
+    position: relative;
+    width: 150px; /* Taille ajustée pour meilleure visibilité */
+    height: 150px; /* Taille ajustée pour meilleure visibilité */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card img {
+    width: 120px; /* Taille ajustée pour meilleure visibilité */
+    height: 120px; /* Taille ajustée pour meilleure visibilité */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.profile-card:hover img {
+    transform: scale(1.1);
+}
+
+.profile-card .profile-name {
+    margin-top: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.profile-card .delete-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #e53935;
+    border: none;
+    border-radius: 50%;
+    width: 30px; /* Taille augmentée */
+    height: 30px; /* Taille augmentée */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.profile-card .delete-button img {
+    width: 20px; /* Taille ajustée */
+    height: 20px; /* Taille ajustée */
+}
+
+.profile-card .delete-button:hover {
+    background: #c62828;
+    transform: scale(1.1);
+}
+
+/* Button Styles */
+.button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Create Profile Button */
+#createProfileButton {
+    background: #ff5722; /* Couleur vive */
+    border: none;
+    border-radius: 50%;
+    padding: 10px; /* Taille réduite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#createProfileButton img {
+    width: 40px;
+    height: 40px;
+}
+
+#createProfileButton:hover {
+    background: #e64a19; /* Couleur au survol */
+    transform: scale(1.1);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px; /* Taille augmentée */
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    margin: 0 0 20px;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.close:hover {
+    color: #e53935;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.modal input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #333;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.modal input:focus {
+    background: #444;
+}
+
+.submit-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-button img {
+    width: 30px; /* Taille réduite */
+    height: 30px; /* Taille réduite */
+}
+
+.submit-button:hover img {
+    transform: scale(1.1);
+}
+
+.modal button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background: #28a745;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal button:hover {
+    background: #218838;
+}
+
+/* Delete Profile Modal */
+#deleteProfileModal .modal-content {
+    background: #333;
+}
+
+#deleteProfileModal button {
+    background: #e53935;
+    border-radius: 5px;
+    padding: 10px;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+#deleteProfileModal button:hover {
+    background: #c62828;
+}
+
+/* Image Preview */
+.image-preview {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.image-preview img {
+    width: 60px; /* Taille augmentée */
+    height: 60px; /* Taille augmentée */
+    object-fit: cover;
+    border-radius: 10px; /* Coins légèrement arrondis */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.image-preview img:hover {
+    transform: scale(1.2);
+}
+
+/* Select Styles */
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #333;
+    color: #ffffff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+select:focus {
+    background: #444;
+}
+
+option {
+    background: #333;
+    color: #ffffff;
+}
+
+option:first-of-type {
+    display: none;
+}
+
+select:hover {
+    transform: scale(1.05);
+}
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fond noir */
+    color: #ffffff; /* Texte blanc */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s;
+}
+
+/* Header */
+header {
+    background: #000000;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
+}
+
+header:hover {
+    background-color: #222;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+header h1 {
+    display: inline;
+    font-size: 2em;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+/* Profiles Section */
+.profiles {
+    padding: 20px;
+}
+
+.profiles h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    animation: fadeIn 1s ease;
+}
+
+/* Profile List */
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Profile Card */
+.profile-card {
+    position: relative;
+    width: 150px; /* Taille ajustée pour meilleure visibilité */
+    height: 150px; /* Taille ajustée pour meilleure visibilité */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card img {
+    width: 120px; /* Taille ajustée pour meilleure visibilité */
+    height: 120px; /* Taille ajustée pour meilleure visibilité */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.profile-card:hover img {
+    transform: scale(1.1);
+}
+
+.profile-card .profile-name {
+    margin-top: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.profile-card .delete-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #e53935;
+    border: none;
+    border-radius: 50%;
+    width: 30px; /* Taille augmentée */
+    height: 30px; /* Taille augmentée */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.profile-card .delete-button img {
+    width: 20px; /* Taille ajustée */
+    height: 20px; /* Taille ajustée */
+}
+
+.profile-card .delete-button:hover {
+    background: #c62828;
+    transform: scale(1.1);
+}
+
+/* Button Styles */
+.button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Create Profile Button */
+#createProfileButton {
+    background: #ff5722; /* Couleur vive */
+    border: none;
+    border-radius: 50%;
+    padding: 10px; /* Taille réduite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#createProfileButton img {
+    width: 40px;
+    height: 40px;
+}
+
+#createProfileButton:hover {
+    background: #e64a19; /* Couleur au survol */
+    transform: scale(1.1);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px; /* Taille augmentée */
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    margin: 0 0 20px;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.close:hover {
+    color: #e53935;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.modal input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #333;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.modal input:focus {
+    background: #444;
+}
+
+.submit-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-button img {
+    width: 30px; /* Taille réduite */
+    height: 30px; /* Taille réduite */
+}
+
+.submit-button:hover img {
+    transform: scale(1.1);
+}
+
+.modal button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background: #28a745;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal button:hover {
+    background: #218838;
+}
+
+/* Delete Profile Modal */
+#deleteProfileModal .modal-content {
+    background: #333;
+}
+
+#deleteProfileModal button {
+    background: #e53935;
+    border-radius: 5px;
+    padding: 10px;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+#deleteProfileModal button:hover {
+    background: #c62828;
+}
+
+/* Image Preview */
+.image-preview {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.image-preview img {
+    width: 60px; /* Taille augmentée */
+    height: 60px; /* Taille augmentée */
+    object-fit: cover;
+    border-radius: 10px; /* Coins légèrement arrondis */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.image-preview img:hover {
+    transform: scale(1.2);
+}
+
+/* Select Styles */
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #333;
+    color: #ffffff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+select:focus {
+    background: #444;
+}
+
+option {
+    background: #333;
+    color: #ffffff;
+}
+
+option:first-of-type {
+    display: none;
+}
+
+select:hover {
+    transform: scale(1.05);
+}

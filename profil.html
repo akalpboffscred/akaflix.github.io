@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profils</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="icon" href="imgweb/icon.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="imgweb/icon.png" alt="AkaFLix Logo">
+            <h1>AkaFLix</h1>
+        </div>
+    </header>
+    <main>
+        <section class="profiles">
+            <h2>Choisissez un profil</h2>
+            <div class="profile-list">
+                <!-- Profils existants -->
+                <div class="profile-card">
+                    <img src="prof/img1.png" alt="Profil 1">
+                    <div class="profile-name">Profil 1</div>
+                    <button class="delete-button">
+                        <img src="prof/delete-icon.png" alt="Supprimer">
+                    </button>
+                </div>
+                <div class="profile-card">
+                    <img src="prof/img2.png" alt="Profil 2">
+                    <div class="profile-name">Profil 2</div>
+                    <button class="delete-button">
+                        <img src="prof/delete-icon.png" alt="Supprimer">
+                    </button>
+                </div>
+                <!-- Ajoute plus de cartes de profil ici -->
+            </div>
+            <button id="createProfileButton" class="button">
+                <img src="prof/plus.png" alt="Créer un nouveau profil">
+            </button>
+            <!-- Modal pour créer un profil -->
+            <div id="createProfileModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Créer un nouveau profil</h2>
+                    <form id="profileForm">
+                        <label for="profileName">Nom du profil :</label>
+                        <input type="text" id="profileName" name="profileName" required>
+                        
+                        <label for="profileImage">Choisir une image :</label>
+                        <select id="profileImage" name="profileImage" required>
+                            <option value="prof/img1.png">Image 1</option>
+                            <option value="prof/img2.png">Image 2</option>
+                            <option value="prof/img3.png">Image 3</option>
+                            <option value="prof/img4.png">Image 4</option>
+                        </select>
+                        
+                        <div id="imagePreview" class="image-preview"></div>
+                        
+                        <label for="profilePassword">Mot de passe :</label>
+                        <input type="password" id="profilePassword" name="profilePassword" required pattern="\d{4}" title="Le mot de passe doit contenir 4 chiffres">
+                        
+                        <button type="submit" class="submit-button">
+                            <img src="prof/ok.png" alt="Créer le profil">
+                        </button>
+                        <div id="notification" class="notification"></div>
+                    </form>
+                </div>
+            </div>
+            <!-- Modal pour supprimer un profil -->
+            <div id="deleteProfileModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Supprimer un profil</h2>
+                    <form id="deleteProfileForm">
+                        <label for="deleteProfilePassword">Code de confirmation :</label>
+                        <input type="password" id="deleteProfilePassword" name="deleteProfilePassword" required>
+                        <button type="submit">Supprimer</button>
+                        <button type="button" id="cancelDeleteButton">Annuler</button>
+                        <div id="deleteNotification" class="notification"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 AkaFLix. Tous droits réservés.</p>
+    </footer>
+    <script src="profile.js"></script>
+</body>
+</html>
